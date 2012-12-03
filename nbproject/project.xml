@@ -12,7 +12,6 @@
             <name>Labs</name>
             <source-roots>
                 <root id="src.dir" name="src"/>
-                <root id="src.src.dir"/>
             </source-roots>
             <test-roots>
                 <root id="test.src.dir"/>
