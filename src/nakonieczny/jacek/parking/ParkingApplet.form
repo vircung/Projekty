@@ -70,7 +70,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                          <Component id="jTabbedPane1" pref="380" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -510,9 +510,6 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="ParkingApplet_jta_osobowe"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
