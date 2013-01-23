@@ -25,21 +25,11 @@ public class LamanaPanel extends javax.swing.JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.drawString("Panel Lamanej",10,10);
-        if(lam != null)
-        {
-        Punkt[] pkt=lam.punkty();
-        g.setColor(Color.BLACK);
-        
-        for(int i=0;i<pkt.length-1;i++)
-             {
-              g.drawLine(pkt[i].getX(),pkt[i].getY(),pkt[i+1].getX(),pkt[i+1].getY());
-              }
-        g.setColor(Color.RED);
-               for(int i=0;i<pkt.length;i++)
-             {
-              g.fillOval(pkt[i].getX()-3,pkt[i].getY()-3,7,7);
-              }
+        g.drawString("Panel Lamanej", 10, 10);
+        if (lam != null) {
+            Punkt[] pkt = lam.punkty();
+            drawLines(pkt, g);
+            drawPoints(g, pkt);
         }
     }
 
@@ -80,25 +70,36 @@ public class LamanaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
-        
-    /*    int x,y;
-        x= evt.getX();
-        y= evt.getY();
-        System.out.println("Move "+x+","+y); */
+        /*    int x,y;
+         x= evt.getX();
+         y= evt.getY();
+         System.out.println("Move "+x+","+y); */
     }//GEN-LAST:event_formMouseMoved
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-       if(evt.getButton()==MouseEvent.BUTTON3)
-       {
+        if (evt.getButton() == MouseEvent.BUTTON3) {
             //System.out.println("prawy guzik myszy");
-             int x,y;
-             x= evt.getX();
-             y= evt.getY();
-             lam.dodajPunkt(new Punkt(x,y));
-             this.repaint();
-       }
+            int x, y;
+            x = evt.getX();
+            y = evt.getY();
+            lam.dodajPunkt(new Punkt(x, y));
+            this.repaint();
+        }
     }//GEN-LAST:event_formMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+    public void drawPoints(Graphics g, Punkt[] pkt) {
+        g.setColor(Color.RED);
+        for (int i = 0; i < pkt.length; i++) {
+            g.fillOval(pkt[i].getX() - 3, pkt[i].getY() - 3, 7, 7);
+        }
+    }
+
+    public void drawLines(Punkt[] pkt, Graphics g) {
+        g.setColor(Color.BLACK);
+        for (int i = 0; i < pkt.length - 1; i++) {
+            g.drawLine(pkt[i].getX(), pkt[i].getY(), pkt[i + 1].getX(), pkt[i + 1].getY());
+        }
+    }
 }

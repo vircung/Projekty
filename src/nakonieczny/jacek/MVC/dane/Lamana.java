@@ -15,7 +15,7 @@ public class Lamana {
     private ArrayList<Punkt> punkty;
 
     public Lamana() {
-        punkty = new ArrayList<Punkt>();
+        punkty = new ArrayList<>();
     }
 
     public void dodajPunkt(Punkt p) {
