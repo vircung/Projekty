@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{03EF8C04-5E20-45C7-959F-812B17E8431B}</ProjectGuid>
+    <ProjectGuid>{18B5351E-2017-46D1-B272-FDE49A78727C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Problem_Plecakowy</RootNamespace>
-    <AssemblyName>Problem Plecakowy</AssemblyName>
+    <RootNamespace>N_królowych</RootNamespace>
+    <AssemblyName>N królowych</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,16 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plecak.cs" />
-    <Compile Include="ProblemPlecakowy.cs">
+    <Compile Include="IleKrolowych.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProblemPlecakowy.Designer.cs">
-      <DependentUpon>ProblemPlecakowy.cs</DependentUpon>
+    <Compile Include="IleKrolowych.Designer.cs">
+      <DependentUpon>IleKrolowych.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NKrolowych.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NKrolowych.Designer.cs">
+      <DependentUpon>NKrolowych.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Przedmiot.cs" />
+    <EmbeddedResource Include="IleKrolowych.resx">
+      <DependentUpon>IleKrolowych.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NKrolowych.resx">
+      <DependentUpon>NKrolowych.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
