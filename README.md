@@ -1,10 +1,19 @@
-AIZO - Algorytmy i Złożoność Obliczeniowa
-====
+# AIZO - Algorytmy i Złożoność Obliczeniowa
+
 
 Zbiór projektów do przedmiotu Algorytmy i Złożoność Obliczeniowa
 
-Lista Projektów
-==
+## Narzędzia
+
+Do rozwiązania problemów wykorzystuję 
+
+* C# 
+* Visual Studio 2010
+
+Wszystkie projekty w solucji domyślnie budowane są na platformę .NET 3.5
+
+## Lista Projektów
+
 
 * Problem plecakowy   [`master/Problem Plecakowy`][problem-plecakowy]
 * Problem n-królowych [`master/N królowych`][problem-n-krolowych]
