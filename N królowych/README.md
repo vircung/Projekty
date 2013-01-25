@@ -1,5 +1,7 @@
 ﻿# Problem ustawienia n-królowych
 
+Opis zaczerpnięty z tej [strony](http://nqueens.fatmagnus.ppa.pl/nqueen_definicja.php)
+
 ## Definicja zadania
 
 

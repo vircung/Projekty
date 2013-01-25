@@ -20,3 +20,4 @@ Wszystkie projekty w solucji domyślnie budowane są na platformę .NET 3.5
 
 [problem-plecakowy]:   https://github.com/vircung/AIZO/tree/master/Problem%20Plecakowy
 [problem-n-krolowych]: https://github.com/vircung/AIZO/tree/master/N%20kr%C3%B3lowych
+[algorytm-rabina-karpa]: https://github.com/vircung/AIZO/tree/master/Algorytm%20Rabina-Karpa
