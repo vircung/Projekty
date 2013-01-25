@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem Plecakowy", "Proble
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N królowych", "N królowych\N królowych.csproj", "{18B5351E-2017-46D1-B272-FDE49A78727C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorytm Rabina-Karpa", "Algorytm Rabina-Karpa\Algorytm Rabina-Karpa.csproj", "{5BFB1F61-5C9A-4CDD-96DA-87CCFB19CD66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -24,6 +26,10 @@ Global
 		{18B5351E-2017-46D1-B272-FDE49A78727C}.Debug|x86.Build.0 = Debug|x86
 		{18B5351E-2017-46D1-B272-FDE49A78727C}.Release|x86.ActiveCfg = Release|x86
 		{18B5351E-2017-46D1-B272-FDE49A78727C}.Release|x86.Build.0 = Release|x86
+		{5BFB1F61-5C9A-4CDD-96DA-87CCFB19CD66}.Debug|x86.ActiveCfg = Debug|x86
+		{5BFB1F61-5C9A-4CDD-96DA-87CCFB19CD66}.Debug|x86.Build.0 = Debug|x86
+		{5BFB1F61-5C9A-4CDD-96DA-87CCFB19CD66}.Release|x86.ActiveCfg = Release|x86
+		{5BFB1F61-5C9A-4CDD-96DA-87CCFB19CD66}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
