@@ -9,9 +9,9 @@ package Projekty.Watki;
  * @author Jacek
  */
 public class Main {
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         System.out.println("Hello");
-        new Thread(new Osoba("Jacek", 7)).start();
+        new Thread(new Osoba("Jacek", 10)).start();
     }
 }
