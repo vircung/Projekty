@@ -12,16 +12,25 @@ import java.util.logging.Logger;
 
 public class Osoba implements Runnable {
 
+    // Locki odpowiedzialne za blokowanie odpowiednich funkcji
     private static final ReentrantLock pushLock = new ReentrantLock();
     private static final ReentrantLock popLock = new ReentrantLock();
     private static final ReentrantLock waitLock = new ReentrantLock();
+    // Nazwa wątku
     private String name;
+    // Licznik pamiętający początkową liczbę wywołań
     private int times;
+    // Licznik zliczający pozostałą liczbę wywołań
     private int left;
+    // Flagi odpowiedzialne za kontrolowanie ilości wywołań odpowiednich funkcji
     private boolean got, gave;
+    // Domyślna skala czasu wykorzystywana do usypiania wątków, domyślnie 100
     private int resolution = 100;
+    // Kolejnka liczb dostępna dla wszystkich obiektów klasy
     private static LinkedList<Integer> numbers = new LinkedList<>();
+    // Zmienna losująca dostępna dla wszystkich obiektów klasy
     private static Random r = new Random(System.currentTimeMillis());
+    // Ostatnia pobrana liczba całkowita
     private static int number = 0;
 
     Osoba(String name, int ile) {
@@ -32,11 +41,21 @@ public class Osoba implements Runnable {
         gave = false;
     }
 
+    /**
+     * Funkcja zwracająca kolejną liczbę całkowitą dla wszystkich instancji
+     * klasy.
+     *
+     * @return nextInt
+     */
     public int NewNumber() {
         return number++;
     }
 
-    public void push() throws InterruptedException {
+    /**
+     * Funkcja pobiera kolejną liczbę całkowitą oraz dodaje ją na koniec
+     * kolejnki.
+     */
+    public void push() {
         if (got) {
             return;
         }
@@ -57,7 +76,10 @@ public class Osoba implements Runnable {
         }
     }
 
-    public void pop() throws InterruptedException {
+    /**
+     * Funkcja pobiera pierwszą liczbę z kolejki.
+     */
+    public void pop() {
         if (gave) {
             return;
         }
@@ -78,7 +100,10 @@ public class Osoba implements Runnable {
         }
     }
 
-    public void sleep() throws InterruptedException {
+    /**
+     * Funkcja usypia wątek na pewien okres czasu.
+     */
+    public void sleep() {
         if (waitLock.tryLock()) {
             waitFor("czekanie", resolution);
         }
@@ -87,32 +112,47 @@ public class Osoba implements Runnable {
         }
     }
 
-    public void waitFor(String msg, int res) throws InterruptedException {
+    /**
+     * Funkcja usypiająca wątek i wyświetlająca wiadomość
+     *
+     * @param msg - wiadomość do wyświetlenia
+     * @param res - skala czasu podana w ms
+     */
+    private void waitFor(String msg, int res) {
         int waitTime = 1 + r.nextInt(times + times) * res;
 
         if (msg != "" && Main.DEBUS_DETAILS) {
             System.err.println(name + ": blokuje " + msg + " : " + waitTime + " ms");
         }
 
-        Thread.sleep(waitTime);
+        try {
+            Thread.sleep(waitTime);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Osoba.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (msg != "" && Main.DEBUS_DETAILS) {
             System.err.println(name + ": zwalniam " + msg);
         }
     }
 
+    /**
+     * Logika działania klasy
+     */
     public void Change() {
-        try {
-            push();
-            sleep();
-            pop();
-            if (got && gave) {
-                left--;
-                got = gave = false;
-            }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Osoba.class
-                    .getName()).log(Level.SEVERE, null, ex);
+        // Odłóż liczbę całkowitą do kolejki
+        push();
+        // Domyślne uśpienie wątku
+        sleep();
+        // Wyświetl i usuń liczbę z początku kolejki
+        pop();
+        
+        // Jeżeli pobrałeś i wyświetliłeś liczbę, wykonałeś jedną pętlę logiki
+        if (got && gave) {
+            // Zmniejsz liczbę pozostałuch obrótów pętli o 1
+            left--;
+            // Zeruj flagi
+            got = gave = false;
         }
     }
 
@@ -122,7 +162,6 @@ public class Osoba implements Runnable {
         while (left > 0) {
             Change();
         }
-
         System.err.println("<------- Watek " + name + " konczy prace");
     }
 }
