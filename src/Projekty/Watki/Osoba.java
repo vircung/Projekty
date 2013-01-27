@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.print.resources.serviceui;
 
 /**
  *
@@ -18,6 +17,7 @@ public class Osoba implements Runnable {
 
     private String name;
     private int times;
+    private int resolution = 100;
     private static LinkedList<Integer> numbers = new LinkedList<>();
     private static Random r = new Random(System.currentTimeMillis());
     private static int number = 0;
@@ -31,20 +31,28 @@ public class Osoba implements Runnable {
         return number++;
     }
 
-    public synchronized void push() {
+    public synchronized void push() throws InterruptedException {
+        waitFor("nowa liczba za", resolution);
         int newNumber = NewNumber();
-        System.err.println("Nowa liczba " + newNumber);
+        System.err.println(name + ": znalazł nowa liczbe " + newNumber);
         numbers.add(newNumber);
     }
 
-    public synchronized void pop() {
-        System.err.println(name + " znalazł liczbę " + numbers.pop());
+    public synchronized void pop() throws InterruptedException {
+        while (numbers.size() <= 0) {
+            waitFor("czekam na liczbę przez", resolution / 10);
+        }
+        System.err.println(name + ": pobrał liczbę " + numbers.pop());
     }
 
     public void sleep() throws InterruptedException {
-        int sleepTime = (r.nextInt(times) + 1) * 100;
-        System.err.println(name + " ide spac na " + sleepTime + " ms");
-        Thread.sleep(sleepTime);
+        waitFor("idę spać na", resolution * 10);
+    }
+
+    public void waitFor(String msg, int res) throws InterruptedException {
+        int waitTime = 1 + r.nextInt(times + times) * res;
+        System.err.println(name + ": " + msg + " " + waitTime + " ms");
+        Thread.sleep(waitTime);
     }
 
     public void Change() {
