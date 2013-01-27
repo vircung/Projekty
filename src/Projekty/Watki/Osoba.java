@@ -15,7 +15,7 @@ public class Osoba implements Runnable {
     // Locki odpowiedzialne za blokowanie odpowiednich funkcji
     private static final ReentrantLock pushLock = new ReentrantLock();
     private static final ReentrantLock popLock = new ReentrantLock();
-    private static final ReentrantLock waitLock = new ReentrantLock();
+    private static final ReentrantLock sleepLock = new ReentrantLock();
     // Nazwa wątku
     private String name;
     // Licznik pamiętający początkową liczbę wywołań
@@ -61,17 +61,26 @@ public class Osoba implements Runnable {
         }
         if (pushLock.tryLock()) {
 
+            if (Main.DEBUG_LOCKS_DETAILS_LOCK) {
+                System.err.println(name + ": zamknałem pushLock");
+            }
             waitFor("zapis", resolution / 2);
 
             int newNumber = NewNumber();
             got = true;
-            if (Main.DEBUG) {
-                System.err.println(name + ": liczba odłożona --->> " + newNumber);
-            }
+            System.err.println(name + ": liczba odłożona --->> " + newNumber);
+
             numbers.add(newNumber);
+        } else {
+            if (Main.DEBUG_LOCKS_DETAILS_LOCKED) {
+                System.err.println(name + ": niedostępny pushLock");
+            }
         }
 
         if (pushLock.isHeldByCurrentThread()) {
+            if (Main.DEBUG_LOCKS_DETAILS_UNLOCK) {
+                System.err.println(name + ": otworzyłem pushLock");
+            }
             pushLock.unlock();
         }
     }
@@ -84,19 +93,30 @@ public class Osoba implements Runnable {
             return;
         }
         if (popLock.tryLock()) {
+            if (Main.DEBUG_LOCKS_DETAILS_LOCK) {
+                System.err.println(name + ": zamknałem popLock");
+            }
             if (numbers.size() > 0) {
                 gave = true;
                 waitFor("odczyt", resolution * 2);
                 System.err.println(name + ": liczba zdjęta   --->> " + numbers.pop());
             } else {
-                if (Main.DEBUG_NO_NUMBERS) {
+                if (Main.DEBUG_NO_NUMBERS_IN_LIST) {
                     System.err.println(name + ": brak liczb do pobrania !!!!!!!!");
                 }
             }
 
+        } else {
+
+            if (Main.DEBUG_LOCKS_DETAILS_LOCKED) {
+                System.err.println(name + ": niedostępny pushLock");
+            }
         }
 
         if (popLock.isHeldByCurrentThread()) {
+            if (Main.DEBUG_LOCKS_DETAILS_UNLOCK) {
+                System.err.println(name + ": otworzyłem popLock");
+            }
             popLock.unlock();
         }
     }
@@ -105,11 +125,22 @@ public class Osoba implements Runnable {
      * Funkcja usypia wątek na pewien okres czasu.
      */
     public void sleep() {
-        if (waitLock.tryLock()) {
+        if (sleepLock.tryLock()) {
+            if (Main.DEBUG_LOCKS_DETAILS_LOCK) {
+                System.err.println(name + ": zamknałem sleepLock");
+            }
             waitFor("czekanie", resolution);
+        } else {
+
+            if (Main.DEBUG_LOCKS_DETAILS_LOCKED) {
+                System.err.println(name + ": niedostępny pushLock");
+            }
         }
-        if (waitLock.isHeldByCurrentThread()) {
-            waitLock.unlock();
+        if (sleepLock.isHeldByCurrentThread()) {
+            if (Main.DEBUG_LOCKS_DETAILS_UNLOCK) {
+                System.err.println(name + ": otworzyłem sleepLock");
+            }
+            sleepLock.unlock();
         }
     }
 
@@ -122,7 +153,7 @@ public class Osoba implements Runnable {
     private void waitFor(String msg, int res) {
         int waitTime = 1 + r.nextInt(times * res) + times * res;
 
-        if (msg != "" && Main.DEBUS_DETAILS) {
+        if (!"".equals(msg) && Main.DEBUG_LOCKS) {
             System.err.println(name + ": blokuje " + msg + " : " + waitTime + " ms");
         }
 
@@ -132,7 +163,7 @@ public class Osoba implements Runnable {
             Logger.getLogger(Osoba.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (msg != "" && Main.DEBUS_DETAILS) {
+        if (!"".equals(msg) && Main.DEBUG_LOCKS) {
             System.err.println(name + ": zwalniam " + msg);
         }
     }

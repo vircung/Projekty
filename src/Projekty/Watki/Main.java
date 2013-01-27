@@ -10,9 +10,14 @@ package Projekty.Watki;
  */
 public class Main {
 
-    static boolean DEBUG = true;
-    static boolean DEBUS_DETAILS = false;
-    static boolean DEBUG_NO_NUMBERS = false;
+    // Wyświetlać informacje o blokadach locków ??
+    static boolean DEBUG_LOCKS = false;
+    // Wyświetlać informacje o zmianach stanów locków ??
+    static boolean DEBUG_LOCKS_DETAILS_LOCKED = false;
+    static boolean DEBUG_LOCKS_DETAILS_LOCK = false;
+    static boolean DEBUG_LOCKS_DETAILS_UNLOCK = false;
+    // Wyświetlać informacje o braku liczb w kolejce ??
+    static boolean DEBUG_NO_NUMBERS_IN_LIST = false;
     /*
      * Problem typu producent-konsument.
      * 
