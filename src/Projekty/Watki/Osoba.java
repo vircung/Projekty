@@ -61,12 +61,12 @@ public class Osoba implements Runnable {
         }
         if (pushLock.tryLock()) {
 
-            waitFor("zapis", resolution);
+            waitFor("zapis", resolution / 2);
 
             int newNumber = NewNumber();
             got = true;
             if (Main.DEBUG) {
-                System.err.println(name + ": znalazł nowa liczbe " + newNumber);
+                System.err.println(name + ": liczba odłożona --->> " + newNumber);
             }
             numbers.add(newNumber);
         }
@@ -86,7 +86,8 @@ public class Osoba implements Runnable {
         if (popLock.tryLock()) {
             if (numbers.size() > 0) {
                 gave = true;
-                System.err.println(name + ": pobrał liczbę " + numbers.pop());
+                waitFor("odczyt", resolution * 2);
+                System.err.println(name + ": liczba zdjęta   --->> " + numbers.pop());
             } else {
                 if (Main.DEBUG_NO_NUMBERS) {
                     System.err.println(name + ": brak liczb do pobrania !!!!!!!!");
@@ -119,7 +120,7 @@ public class Osoba implements Runnable {
      * @param res - skala czasu podana w ms
      */
     private void waitFor(String msg, int res) {
-        int waitTime = 1 + r.nextInt(times + times) * res;
+        int waitTime = 1 + r.nextInt(times * res) + times * res;
 
         if (msg != "" && Main.DEBUS_DETAILS) {
             System.err.println(name + ": blokuje " + msg + " : " + waitTime + " ms");
@@ -146,7 +147,7 @@ public class Osoba implements Runnable {
         sleep();
         // Wyświetl i usuń liczbę z początku kolejki
         pop();
-        
+
         // Jeżeli pobrałeś i wyświetliłeś liczbę, wykonałeś jedną pętlę logiki
         if (got && gave) {
             // Zmniejsz liczbę pozostałuch obrótów pętli o 1
