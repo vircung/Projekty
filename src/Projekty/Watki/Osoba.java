@@ -6,17 +6,19 @@ package Projekty.Watki;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Jacek
- */
 public class Osoba implements Runnable {
 
+    private static final ReentrantLock pushLock = new ReentrantLock();
+    private static final ReentrantLock popLock = new ReentrantLock();
+    private static final ReentrantLock waitLock = new ReentrantLock();
     private String name;
     private int times;
+    private int left;
+    private boolean got, gave;
     private int resolution = 100;
     private static LinkedList<Integer> numbers = new LinkedList<>();
     private static Random r = new Random(System.currentTimeMillis());
@@ -24,35 +26,79 @@ public class Osoba implements Runnable {
 
     Osoba(String name, int ile) {
         this.name = name;
+        this.left = ile;
         this.times = ile;
+        got = false;
+        gave = false;
     }
 
     public int NewNumber() {
         return number++;
     }
 
-    public synchronized void push() throws InterruptedException {
-        waitFor("nowa liczba za", resolution);
-        int newNumber = NewNumber();
-        System.err.println(name + ": znalazł nowa liczbe " + newNumber);
-        numbers.add(newNumber);
+    public void push() throws InterruptedException {
+        if (got) {
+            return;
+        }
+        if (pushLock.tryLock()) {
+
+            waitFor("zapis", resolution);
+
+            int newNumber = NewNumber();
+            got = true;
+            if (Main.DEBUG) {
+                System.err.println(name + ": znalazł nowa liczbe " + newNumber);
+            }
+            numbers.add(newNumber);
+        }
+
+        if (pushLock.isHeldByCurrentThread()) {
+            pushLock.unlock();
+        }
     }
 
-    public synchronized void pop() throws InterruptedException {
-        while (numbers.size() <= 0) {
-            waitFor("czekam na liczbę przez", resolution / 10);
+    public void pop() throws InterruptedException {
+        if (gave) {
+            return;
         }
-        System.err.println(name + ": pobrał liczbę " + numbers.pop());
+        if (popLock.tryLock()) {
+            if (numbers.size() > 0) {
+                gave = true;
+                System.err.println(name + ": pobrał liczbę " + numbers.pop());
+            } else {
+                if (Main.DEBUG_NO_NUMBERS) {
+                    System.err.println(name + ": brak liczb do pobrania !!!!!!!!");
+                }
+            }
+
+        }
+
+        if (popLock.isHeldByCurrentThread()) {
+            popLock.unlock();
+        }
     }
 
     public void sleep() throws InterruptedException {
-        waitFor("idę spać na", resolution * 10);
+        if (waitLock.tryLock()) {
+            waitFor("czekanie", resolution);
+        }
+        if (waitLock.isHeldByCurrentThread()) {
+            waitLock.unlock();
+        }
     }
 
     public void waitFor(String msg, int res) throws InterruptedException {
         int waitTime = 1 + r.nextInt(times + times) * res;
-        System.err.println(name + ": " + msg + " " + waitTime + " ms");
+
+        if (msg != "" && Main.DEBUS_DETAILS) {
+            System.err.println(name + ": blokuje " + msg + " : " + waitTime + " ms");
+        }
+
         Thread.sleep(waitTime);
+
+        if (msg != "" && Main.DEBUS_DETAILS) {
+            System.err.println(name + ": zwalniam " + msg);
+        }
     }
 
     public void Change() {
@@ -60,17 +106,23 @@ public class Osoba implements Runnable {
             push();
             sleep();
             pop();
+            if (got && gave) {
+                left--;
+                got = gave = false;
+            }
         } catch (InterruptedException ex) {
-            Logger.getLogger(Osoba.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Osoba.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     public void run() {
-        System.err.println("Watek " + name + " zaczyna prace");
-        for (int i = 0; i < times; i++) {
+        System.err.println("-------> Watek " + name + " zaczyna prace");
+        while (left > 0) {
             Change();
         }
-        System.err.println("Watek " + name + " konczy prace");
+
+        System.err.println("<------- Watek " + name + " konczy prace");
     }
 }
