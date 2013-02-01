@@ -15,5 +15,5 @@ Część z nich będzie/jest prostymi algorytmami, które można spotkać w trak
 * Visual Studio 2010
 * Netbeans
 
-[AIZO]: tree/master/AIZO
-[JAVA]: tree/master/JAVA
+[AIZO]: AIZO
+[JAVA]: JAVA
