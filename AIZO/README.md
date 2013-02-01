@@ -19,6 +19,6 @@ Wszystkie projekty w solucji domyślnie budowane są na platformę .NET 3.5
 * Problem n-królowych [`N królowych`][problem-n-krolowych]
 * Algorytm Rabina-Karpa [`Algorytm Rabina-Karpa`][algorytm-rabina-karpa]
 
-[problem-plecakowy]:   AIZO/Problem%20Plecakowy
-[problem-n-krolowych]: AIZO/N%20kr%C3%B3lowych
-[algorytm-rabina-karpa]: AIZO/Algorytm%20Rabina-Karpa
+[problem-plecakowy]:   Problem%20Plecakowy
+[problem-n-krolowych]: N%20kr%C3%B3lowych
+[algorytm-rabina-karpa]: Algorytm%20Rabina-Karpa
