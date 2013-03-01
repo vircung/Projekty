@@ -53,6 +53,13 @@ public class MainFrame extends javax.swing.JFrame {
         txt_t = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txt_b = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        btn_rect1 = new javax.swing.JButton();
+        btn_roundrect1 = new javax.swing.JButton();
+        btn_oval1 = new javax.swing.JButton();
+        btn_filloval1 = new javax.swing.JButton();
+        btn_fillroundrect1 = new javax.swing.JButton();
+        btn_fillrect1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,7 +124,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_rect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_roundrect, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(btn_roundrect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_oval, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_fillrect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_fillroundrect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -175,7 +182,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(txt_r, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGap(18, 29, Short.MAX_VALUE)
                         .addComponent(txt_t, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -202,7 +209,88 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_b, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btn_rect1.setText("Prostokąt");
+        btn_rect1.setActionCommand("rect");
+        btn_rect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rect1ActionPerformed(evt);
+            }
+        });
+
+        btn_roundrect1.setText("ZaokrProstokąt");
+        btn_roundrect1.setActionCommand("roundrect");
+        btn_roundrect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rect1ActionPerformed(evt);
+            }
+        });
+
+        btn_oval1.setText("Elipsa");
+        btn_oval1.setActionCommand("oval");
+        btn_oval1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rect1ActionPerformed(evt);
+            }
+        });
+
+        btn_filloval1.setText("Elipsa");
+        btn_filloval1.setActionCommand("foval");
+        btn_filloval1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rect1ActionPerformed(evt);
+            }
+        });
+
+        btn_fillroundrect1.setText("ZaokrProstokąt");
+        btn_fillroundrect1.setActionCommand("froundrect");
+        btn_fillroundrect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rect1ActionPerformed(evt);
+            }
+        });
+
+        btn_fillrect1.setText("Prostokąt");
+        btn_fillrect1.setActionCommand("frect");
+        btn_fillrect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rect1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_rect1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_roundrect1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_oval1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_fillrect1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_fillroundrect1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_filloval1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_rect1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_roundrect1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_oval1)
+                .addGap(18, 18, 18)
+                .addComponent(btn_fillrect1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_fillroundrect1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_filloval1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,27 +298,30 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -296,6 +387,42 @@ public class MainFrame extends javax.swing.JFrame {
         g.fillOval(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
     }//GEN-LAST:event_btn_fillovalActionPerformed
 
+    private void btn_rect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_rect1ActionPerformed
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
+        g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
+        switch (evt.getActionCommand()) {
+            case "rect":
+                g.setColor(Color.BLACK);
+                g.drawRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
+                break;
+            case "roundrect":
+                g.setColor(Color.BLACK);
+                g.drawRoundRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1, arcWidth, arcHeight);
+                break;
+            case "oval":
+                g.setColor(Color.BLACK);
+                g.drawOval(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
+                break;
+            case "frect":
+                g.setColor(color);
+                g.fillRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
+                break;
+            case "froundrect":
+                g.setColor(color);
+                g.fillRoundRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1, arcWidth, arcHeight);
+                break;
+            case "foval":
+                g.setColor(color);
+                g.fillOval(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }//GEN-LAST:event_btn_rect1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,18 +459,28 @@ public class MainFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_filloval;
+    private javax.swing.JButton btn_filloval1;
     private javax.swing.JButton btn_fillrect;
+    private javax.swing.JButton btn_fillrect1;
     private javax.swing.JButton btn_fillroundrect;
+    private javax.swing.JButton btn_fillroundrect1;
     private javax.swing.JButton btn_oval;
+    private javax.swing.JButton btn_oval1;
     private javax.swing.JButton btn_rect;
+    private javax.swing.JButton btn_rect1;
     private javax.swing.JButton btn_roundrect;
+    private javax.swing.JButton btn_roundrect1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txt_b;
     private javax.swing.JTextField txt_l;
     private javax.swing.JTextField txt_r;
