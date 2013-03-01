@@ -12,12 +12,12 @@ import java.awt.Graphics;
  * @author Jacek
  */
 public class MainFrame extends javax.swing.JFrame {
-    
+
     Graphics g = null;
     Color color = Color.CYAN;
-    int padding = 10;
     int arcWidth = 20;
     int arcHeight = 20;
+    int l, r, t, b;
 
     /**
      * Creates new form MainFrame
@@ -44,6 +44,15 @@ public class MainFrame extends javax.swing.JFrame {
         btn_filloval = new javax.swing.JButton();
         btn_fillroundrect = new javax.swing.JButton();
         btn_fillrect = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txt_l = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txt_r = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_t = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_b = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,7 +139,70 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btn_fillroundrect)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_filloval)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel1.setText("L");
+
+        txt_l.setText("0");
+
+        jLabel2.setText("P");
+
+        txt_r.setText("0");
+
+        jLabel3.setText("G");
+
+        txt_t.setText("0");
+
+        jLabel4.setText("D");
+
+        txt_b.setText("0");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txt_l, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txt_r, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txt_t, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txt_b, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txt_l, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_t, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_b, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,16 +213,23 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -158,40 +237,63 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_rectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_rectActionPerformed
-        // TODO add your handling code here:
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
         g.setColor(Color.BLACK);
         g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-        g.drawRect(padding, padding, jPanel1.getWidth() - padding * 2, jPanel1.getHeight() - padding * 2);
+        g.drawRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
     }//GEN-LAST:event_btn_rectActionPerformed
 
     private void btn_fillrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fillrectActionPerformed
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
         g.setColor(color);
         g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-        g.fillRect(padding, padding, jPanel1.getWidth() - padding * 2, jPanel1.getHeight() - padding * 2);
+        g.fillRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
     }//GEN-LAST:event_btn_fillrectActionPerformed
 
     private void btn_roundrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_roundrectActionPerformed
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
         g.setColor(Color.BLACK);
         g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-        g.drawRoundRect(padding, padding, jPanel1.getWidth() - padding * 2, jPanel1.getHeight() - padding * 2, arcWidth, arcHeight);
+        g.drawRoundRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1, arcWidth, arcHeight);
     }//GEN-LAST:event_btn_roundrectActionPerformed
 
     private void btn_ovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ovalActionPerformed
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
         g.setColor(Color.BLACK);
         g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-        g.drawOval(padding, padding, jPanel1.getWidth() - padding * 2, jPanel1.getHeight() - padding * 2);
+        g.drawOval(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
     }//GEN-LAST:event_btn_ovalActionPerformed
 
     private void btn_fillroundrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fillroundrectActionPerformed
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
         g.setColor(color);
         g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-        g.fillRoundRect(padding, padding, jPanel1.getWidth() - padding * 2, jPanel1.getHeight() - padding * 2, arcWidth, arcHeight);
+        g.fillRoundRect(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1, arcWidth, arcHeight);
     }//GEN-LAST:event_btn_fillroundrectActionPerformed
 
     private void btn_fillovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fillovalActionPerformed
+        l = Integer.parseInt(txt_l.getText());
+        r = Integer.parseInt(txt_r.getText());
+        t = Integer.parseInt(txt_t.getText());
+        b = Integer.parseInt(txt_b.getText());
         g.setColor(color);
         g.clearRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-        g.fillOval(padding, padding, jPanel1.getWidth() - padding * 2, jPanel1.getHeight() - padding * 2);
+        g.fillOval(l, t, jPanel1.getWidth() - l - r - 1, jPanel1.getHeight() - t - b - 1);
     }//GEN-LAST:event_btn_fillovalActionPerformed
 
     /**
@@ -235,7 +337,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_oval;
     private javax.swing.JButton btn_rect;
     private javax.swing.JButton btn_roundrect;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField txt_b;
+    private javax.swing.JTextField txt_l;
+    private javax.swing.JTextField txt_r;
+    private javax.swing.JTextField txt_t;
     // End of variables declaration//GEN-END:variables
 }
