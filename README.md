@@ -6,8 +6,8 @@ Część z nich będzie/jest prostymi algorytmami, które można spotkać w trak
 
 ## Przedmioty
 
-* Algorytmy i Złożoność Obliczeniowa [`Java`][JAVA]
-* Java (Labolatorium) [`AiZO`][AIZO]
+* Algorytmy i Złożoność Obliczeniowa [`AiZO`][AIZO]
+* Java (Labolatorium) [`Java`][JAVA]
 
 ## Używane programy
 
