@@ -16,14 +16,14 @@ public class MainPanel extends javax.swing.JPanel {
 
     private int bmargin = 0, tmargin = 0, lmargin = 0, rmargin = 0;
     private Color bgColor, drawColor;
-    private ShapeType shape = null;
+    private ShapeType shape = ShapeType.nothing;
 
     /**
      * Creates new form MainPanel
      */
     public MainPanel() {
         initComponents();
-        bgColor = getBackground();
+        bgColor = Color.DARK_GRAY;
         drawColor = Color.BLACK;
     }
 
@@ -36,22 +36,22 @@ public class MainPanel extends javax.swing.JPanel {
 
         switch (shape) {
             case drawOval:
-                g.drawOval(lmargin, tmargin, getWidth() + lmargin + tmargin - 1, getHeight() + tmargin + bmargin - 1);
+                g.drawOval(lmargin, tmargin, getWidth() - lmargin - rmargin - 1, getHeight() - tmargin - bmargin - 1);
                 break;
             case fillOval:
-                g.fillOval(lmargin, tmargin, getWidth() + lmargin + tmargin - 1, getHeight() + tmargin + bmargin - 1);
+                g.fillOval(lmargin, tmargin, getWidth() - lmargin - rmargin - 1, getHeight() - tmargin - bmargin - 1);
                 break;
             case drawRect:
-                g.drawRect(lmargin, tmargin, getWidth() + lmargin + tmargin - 1, getHeight() + tmargin + bmargin - 1);
+                g.drawRect(lmargin, tmargin, getWidth() - lmargin - rmargin - 1, getHeight() - tmargin - bmargin - 1);
                 break;
             case fillRect:
-                g.fillRect(lmargin, tmargin, getWidth() + lmargin + tmargin - 1, getHeight() + tmargin + bmargin - 1);
+                g.fillRect(lmargin, tmargin, getWidth() - lmargin - rmargin - 1, getHeight() - tmargin - bmargin - 1);
                 break;
             case drawRoundRect:
-                g.drawRoundRect(lmargin, tmargin, getWidth() + lmargin + tmargin - 1, getHeight() + tmargin + bmargin - 1, 30, 30);
+                g.drawRoundRect(lmargin, tmargin, getWidth() - lmargin - rmargin - 1, getHeight() - tmargin - bmargin - 1, 30, 30);
                 break;
             case fillRoundRect:
-                g.fillRoundRect(lmargin, tmargin, getWidth() + lmargin + tmargin - 1, getHeight() + tmargin + bmargin - 1, 30, 30);
+                g.fillRoundRect(lmargin, tmargin, getWidth() - lmargin - rmargin - 1, getHeight() - tmargin - bmargin - 1, 30, 30);
                 break;
             default:
                 break;
@@ -101,10 +101,10 @@ public class MainPanel extends javax.swing.JPanel {
     }
 
     public void setMargins(int l, int r, int t, int b) {
-        this.lmargin = l;
-        this.rmargin = r;
-        this.tmargin = t;
-        this.bmargin = b;
+        this.lmargin = Math.max(l, 0);
+        this.rmargin = Math.max(r, 0);
+        this.tmargin = Math.max(t, 0);
+        this.bmargin = Math.max(b, 0);
         repaint();
     }
 }
