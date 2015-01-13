@@ -5,10 +5,10 @@ Zaawansowane Metody Sztucznej Inteligencji, semestr 3
 
 Uruchomienie sieci:
 
-* parametrem jest siecią neuronów
-* parametrem są badane punkty
-* parametrem jest nazwa funkcji aktywującej (`bipolar` lub `unipolar`)
-* parametrem jest flaga czy mają być wyświetlane dodatkowe komunikaty z działania sieci
+* 1 parametrem jest siecią neuronów
+* 2 parametrem są badane punkty
+* 3 parametrem jest nazwa funkcji aktywującej (`bipolar` lub `unipolar`)
+* 4 parametrem jest flaga czy mają być wyświetlane dodatkowe komunikaty z działania sieci
 
 ````
     input_network = [
