@@ -8,12 +8,15 @@ Część z nich będzie/jest prostymi algorytmami, które można spotkać w trak
 
 * Algorytmy i Złożoność Obliczeniowa [`AiZO`][AIZO]
 * Java (Labolatorium) [`Java`][JAVA]
+* Zaawansowane Metody Sztucznej Inteligencji [`ZMSI`][ZMSI]
 
 ## Używane programy
 
 * git
 * Visual Studio 2010
 * Netbeans
+* SciLab
 
 [AIZO]: AIZO
 [JAVA]: JAVA
+[ZMSI]: ZMSI
